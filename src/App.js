@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -7,11 +7,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import { Checkout, Product, Products, Home } from "./pages";
 import { CartProvider } from "./context/cart";
-import { Navbar } from './components';
+import { Navbar, Footer } from "./components";
 
 const theme = createTheme({
   colorSchemes: {
-    dark: true,
+    dark: false,
   },
   palette: {
     primary: {
@@ -58,6 +58,7 @@ function App() {
               <Route exact path="/:category" element={<Products />} />
               <Route exact path="/" element={<Home />} />
             </Routes>
+            <Footer />
           </CartProvider>
         </ThemeProvider>
       </Router>
