@@ -1,4 +1,4 @@
-export { default as Product } from "./Product";
-export { default as Products } from "./Products";
-export { default as Checkout } from "./Checkout";
-export { default as Home } from "./Home";
+export { default as Product } from "./product";
+export { default as Products } from "./products";
+export { default as Checkout } from "./checkout";
+export { default as Home } from "./home";
