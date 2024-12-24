@@ -7,7 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import { Checkout, Product, Products, Home } from "./pages";
 import { CartProvider } from "./context/cart";
-import { Navbar, Footer } from "./components";
+import { Navbar, Footer, CarouselWrapper } from "./components";
 
 const theme = createTheme({
   colorSchemes: {
@@ -52,6 +52,7 @@ function App() {
           <CssBaseline />
           <CartProvider value={value}>
             <Navbar />
+            <CarouselWrapper/>
             <Routes>
               <Route exact path="/checkout" element={<Checkout />} />
               <Route path="/:category/:productId" element={<Product />} />
