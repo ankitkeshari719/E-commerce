@@ -6,7 +6,7 @@ import { ProductSuggestions } from "../components";
 import './style.css'
 
 export default function Home() {
-  const { response: products, loading } = useProductsWithLimit(10);
+  const { response: products, loading } = useProductsWithLimit();
   if (loading) {
     return (
       <Container maxWidth={false} className="loader-container"> 
