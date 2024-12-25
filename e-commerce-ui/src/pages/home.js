@@ -9,7 +9,7 @@ import "./style.css";
 export default function Home() {
   const { response: products, loading } = useProductsWithLimit();
   if (loading) {
-    return <Loader content={LOADER_CONTENTS.ALL_PRODUCTS} />;
+    return <Loader text={LOADER_CONTENTS.ALL_PRODUCTS} />;
   }
   return (
     <Paper square>

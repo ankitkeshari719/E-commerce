@@ -15,7 +15,6 @@ import AdbIcon from "@mui/icons-material/Adb";
 import "./style.css";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { CardMedia } from "@mui/material";
 
 const pages = ["Mens", "Womens", "Baby", "Sports Specific"];
 const settings = ["Profile", "Account", "Logout"];
