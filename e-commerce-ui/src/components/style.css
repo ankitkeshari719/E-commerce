@@ -37,6 +37,12 @@
   border: 1px solid #000000 !important;
 }
 
+.logo {
+  margin-top: 5px;
+  height: 500px;
+  background: url(./../assets/logo.jpg) no-repeat center center/cover;
+}
+
 .footer {
   display: flex;
   align-items: center;
