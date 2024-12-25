@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 import { useProductsWithLimit } from "../hooks/useProducts";
 import { Loader, ProductSuggestions } from "../components";
@@ -13,6 +13,8 @@ export default function Home() {
   }
   return (
     <Container maxWidth={false}>
+      <Typography>Our Bestsellers</Typography>
+      <Typography>Don't miss out Top Selling styles</Typography>
       <ProductSuggestions products={products} />
     </Container>
   );
