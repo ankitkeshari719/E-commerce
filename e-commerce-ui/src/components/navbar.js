@@ -12,14 +12,34 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import { useNavigate } from "react-router-dom";
+
 import "./style.css";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const pages = ["Mens", "Womens", "Baby", "Sports Specific"];
+const pages = [
+  {
+    href: "men's clothing",
+    title: "Mens",
+  },
+  {
+    href: "women's clothing",
+    title: "Women's",
+  },
+  {
+    href: "electronics",
+    title: "Electronics",
+  },
+  {
+    href: "jewelery",
+    title: "jewellery",
+  },
+];
 const settings = ["Profile", "Account", "Logout"];
 
 export default function NavBar() {
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -39,12 +59,18 @@ export default function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Avatar aria-label="recipe">
+          {/* Not Mobile */}
+          <Avatar
+            aria-label="recipe"
+            sx={{ display: { xs: "none", md: "flex" } }}
+            onClick={() => navigate("/")}
+          >
             <div className="logo"></div>
           </Avatar>
+          {/* Mobile */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -73,13 +99,17 @@ export default function NavBar() {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-                </MenuItem>
+                <span onClick={() => navigate(page?.href)}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography sx={{ textAlign: "center" }}>
+                      {page.title}
+                    </Typography>
+                  </MenuItem>
+                </span>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* Mobile */}
           <Typography
             variant="h5"
             noWrap
@@ -95,18 +125,22 @@ export default function NavBar() {
               color: "inherit",
               textDecoration: "none",
             }}
+            onClick={() => navigate("/")}
           >
-            LOGO
+            Shubham
           </Typography>
+          {/* Not Mobile */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+              <span onClick={() => navigate(page?.href)}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.title}
+                </Button>
+              </span>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
