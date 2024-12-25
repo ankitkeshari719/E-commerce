@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Box, Paper } from "@mui/material";
 
 import { useProductsWithLimit } from "../hooks/useProducts";
 import { Loader, ProductSuggestions } from "../components";
@@ -12,10 +12,14 @@ export default function Home() {
     return <Loader content={LOADER_CONTENTS.ALL_PRODUCTS} />;
   }
   return (
-    <Container maxWidth={false}>
-      <Typography>Our Bestsellers</Typography>
-      <Typography>Don't miss out Top Selling styles</Typography>
+    <Paper square>
+      <Typography className="home-page-header-1" variant="h3">
+        Our Bestsellers
+      </Typography>
+      <Typography className="home-page-header-2" variant="h5">
+        Don't miss out Top Selling styles
+      </Typography>
       <ProductSuggestions products={products} />
-    </Container>
+    </Paper>
   );
 }

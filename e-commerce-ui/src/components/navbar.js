@@ -7,11 +7,12 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -29,6 +30,7 @@ export default function NavBar() {
               </Typography>
             </Link>
           </Typography>
+          <ShoppingCartIcon/>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
