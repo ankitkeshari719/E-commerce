@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Box, Paper } from "@mui/material";
+import { Typography, Paper } from "@mui/material";
 
 import { useProductsWithLimit } from "../hooks/useProducts";
 import { Loader, ProductSuggestions } from "../components";
