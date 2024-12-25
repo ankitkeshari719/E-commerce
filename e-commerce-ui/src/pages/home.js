@@ -1,21 +1,18 @@
 import React from "react";
-import { CircularProgress, Container } from "@mui/material";
+import { Container } from "@mui/material";
 
 import { useProductsWithLimit } from "../hooks/useProducts";
-import { ProductSuggestions } from "../components";
-import './style.css'
+import { Loader, ProductSuggestions } from "../components";
+import { LOADER_CONTENTS } from "../constant/constants";
+import "./style.css";
 
 export default function Home() {
   const { response: products, loading } = useProductsWithLimit();
   if (loading) {
-    return (
-      <Container maxWidth={false} className="loader-container"> 
-        <CircularProgress color="inherit" />
-      </Container>
-    );
+    return <Loader content={LOADER_CONTENTS.ALL_PRODUCTS} />;
   }
   return (
-    <Container maxWidth={false}> 
+    <Container maxWidth={false}>
       <ProductSuggestions products={products} />
     </Container>
   );
